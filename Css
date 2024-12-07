@@ -1,1 +1,569 @@
+/* Basic Reset and Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #1a202c; /* Dark background for professional look */
+    color: white;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #f4f6f9;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #4CAF50; /* Hover effect */
+}
+
+
+
+/* News Tracker Styling */
+.news-tracker {
+    background-color: #ffebe7; /* Yellow background */
+    color: #000000; /* Black text color */
+    font-size: 16px; /* Text size */
+    text-align: center; /* Centered text */
+    padding: 10px 0; /* Padding for spacing */
+    position: relative; /* Relative to its normal position */
+    width: 100%; /* Full width */
+    z-index: 1000; /* On top of other content */
+    overflow: hidden; /* Hide anything that overflows */
+}
+
+.news-tracker p {
+    display: inline-block; /* Inline block to calculate proper width */
+    margin: 0;
+    white-space: nowrap; /* Prevent wrapping */
+    animation: scroll-text linear infinite; /* Set animation dynamically */
+}
+
+/* Scrolling animation */
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%); /* Start from outside viewport */
+    }
+    100% {
+        transform: translateX(-100%); /* End outside the viewport */
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .news-tracker p {
+        font-size: 14px; /* Smaller font size for mobile */
+        animation-duration: 20s; /* Adjusted for proper scrolling */
+    }
+}
+
+@media (min-width: 768px) {
+    .news-tracker p {
+        animation-duration: 20s; /* Desktop scrolling time */
+    }
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
+    background: linear-gradient(135deg, #1a202c, #2b3940); /* Stylish Gradient */
+    color: white;
+    border-bottom: 3px solid #f3f4f6;
+    margin-top: 5px;
+    flex-wrap: wrap; /* Ensures content adjusts better on smaller screens */
+}
+
+.hero .hero-content {
+    max-width: 50%;
+    padding-right: 20px; /* Adds spacing between text and image */
+}
+
+.hero h2 {
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero .cta {
+    background-color: #4CAF50;
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.hero .cta:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.hero .hero-image {
+    max-width: 45%;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero .hero-content {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .hero .hero-image {
+        max-width: 80%;
+        margin-top: 20px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cta {
+        margin-top: 20px;
+    }
+}
+
+/* Pop-up overlay */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's on top */
+}
+
+/* Pop-up content */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%; /* Adjusted for better fitting on small screens */
+    max-width: 700px; /* Max width for larger screens */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Iframe responsiveness */
+.popup-content iframe {
+    width: 100%; /* Full width of the pop-up content */
+    height: 500px; /* Adjusted height for mobile view */
+}
+
+/* Close button */
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Additional media query for smaller screens */
+@media (max-width: 600px) {
+    .popup-content iframe {
+        height: 400px; /* Adjust iframe height for smaller screens */
+    }
+}
+
+
+
+
+
+/* Service Cards */
+section {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 22%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #777;
+}
+
+
+
+/* Services Section */
+#services {
+    padding: 50px 30px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* রিভিউ সেকশনের স্টাইল */
+#reviews {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#reviews h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.reviews-container {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.reviews-slider {
+    display: flex;
+    gap: 20px;
+    animation: scroll-reviews 20s linear infinite;
+}
+
+.reviews-slider img {
+    width: auto; /* প্রাকৃতিক প্রস্থ */
+    height: 150px; /* উচ্চতা নির্ধারণ */
+    object-fit: contain; /* আকৃতি ধরে রাখা */
+    border-radius: 10px; /* কোণ গোল করা */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease; /* জুম ইফেক্ট */
+    image-rendering: auto; /* রেন্ডারিং উন্নত */
+}
+.reviews-slider img:hover {
+    transform: scale(1.05); /* হোভার জুম */
+}
+
+/* এনিমেশন */
+@keyframes scroll-reviews {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* মোবাইল রেস্পনসিভ */
+@media (max-width: 768px) {
+    .reviews-slider img {
+        width: 150px;
+    }
+}
+
+
+.whatsapp-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #25D366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #1EBE54;
+  }
+
+
+
+/* Contact Section */
+#contact .whatsapp-button {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#contact .whatsapp-button:hover {
+    background-color: #128C7E;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    list-style-type: none;
+    color: white;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 2px solid #444;
+    text-align: center;
+}
+
+footer .social-links li {
+    margin: 0 10px;
+}
+
+footer .social-links img {
+    height: 30px;
+    margin: 0 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-right {
+    width: 30%;
+}
+
+.footer-center {
+    width: 40%;
+    text-align: center;
+}
+
+footer a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .social-links img {
+    height: 30px;
+    margin: 0 10px;
+}
+
+footer .qr-code {
+    height: 80px;
+    margin: 0 auto;
+    display: block;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.floating-whatsapp img {
+    width: 50px; /* ?????? ?????? */
+    height: 50px; /* ?????? ?????? */
+    border-radius: 50%; /* ??????? ???? */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ??????? ?????? */
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp img:hover {
+    transform: scale(1.1); /* ????? ???? ???? ??????? ?? ?????? */
+}
+
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    .hero img {
+        max-width: 80%;
+        margin-top: 50px;
+    }
+
+@media (max-width: 768px) {
+    .hero .hero-image {
+        max-width: 80%;
+        margin-top: 50px;
+    }
+}
+
+
+    .service-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cta {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .whatsapp-button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+@media (max-width: 768px) {
+    .floating-whatsapp img {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width: 480px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 
